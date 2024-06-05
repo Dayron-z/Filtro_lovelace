@@ -20,7 +20,7 @@ public class Lesson {
     private String title;
 
     @Lob
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false)
     private String content;
 
     @Column(nullable = false)

@@ -32,7 +32,4 @@ public class Student {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name =  "class_id" , referencedColumnName = "id")
     private ClassEntity aClass;
-
-
-
 }
