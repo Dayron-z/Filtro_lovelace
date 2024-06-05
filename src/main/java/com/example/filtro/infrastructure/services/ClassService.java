@@ -27,7 +27,6 @@ import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
-
 public class ClassService implements IClassService {
 
 
@@ -85,7 +84,7 @@ public class ClassService implements IClassService {
                 .build();
     }
     private ClassResponse entityToResponse(ClassEntity classEntity){
-        List<LessonResponseToClassResponse> lesspns = classEntity.getLessons().stream().map(lesson -> this.entityToLessonResponse(lesson)).collect(Collectors.toList());
+        List<LessonResponseToClassResponse> lessons = classEntity.getLessons().stream().map(lesson -> this.entityToLessonResponse(lesson)).collect(Collectors.toList());
 
         List<StudentResponseToClassResponse> students = classEntity.getStudents().stream().map(student -> this.entityToStudentResponse(student)).collect(Collectors.toList());
 
@@ -96,7 +95,7 @@ public class ClassService implements IClassService {
                 .description(classEntity.getDescription())
                 .created_at(classEntity.getCreated_at())
                 .active(classEntity.getActive())
-                .lessons(lesspns)
+                .lessons(lessons)
                 .students(students)
                 .build();
     }
