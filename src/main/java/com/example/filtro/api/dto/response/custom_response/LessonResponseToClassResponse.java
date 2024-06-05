@@ -21,5 +21,5 @@ public class LessonResponseToClassResponse {
     private String content;
     private LocalDateTime created_at;
     private Boolean active;
-    private List<Multimedia> multimediaList;
+    private List<MultimediaResponseToLessonResponse> multimediaList;
 }
