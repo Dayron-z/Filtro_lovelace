@@ -4,6 +4,7 @@ import com.example.filtro.api.dto.request.used_request.ClassRequest;
 import com.example.filtro.api.dto.response.used_response.ClassResponse;
 import com.example.filtro.infrastructure.abstract_services.IClassService;
 import com.example.filtro.util.enums.SortType;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -16,6 +17,7 @@ import java.util.Objects;
 @RestController
 @AllArgsConstructor
 @RequestMapping(path = "/class")
+@Tag(name = "class", description = "Operaciones relacionadas con las clases")
 public class ClassController {
     @Autowired
     private final IClassService classService;
@@ -44,6 +46,5 @@ public class ClassController {
 
         return ResponseEntity.ok(this.classService.getAll(page - 1, size, sortType));
     }
-
 
 }

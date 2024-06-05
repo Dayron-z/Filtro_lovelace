@@ -13,11 +13,10 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClassResponseToStudentResponse {
+public class LessonResponseToBasicClassResponse {
     private Long id;
-    private String name;
-    private String description;
+    private String title;
+    private String content;
     private LocalDateTime created_at;
     private Boolean active;
-    private List<LessonResponseToBasicClassResponse> lessons;
 }
