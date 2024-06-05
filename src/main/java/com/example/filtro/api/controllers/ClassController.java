@@ -19,6 +19,7 @@ import java.util.Objects;
 @RequestMapping(path = "/class")
 @Tag(name = "class", description = "Operaciones relacionadas con las clases")
 public class ClassController {
+
     @Autowired
     private final IClassService classService;
 
