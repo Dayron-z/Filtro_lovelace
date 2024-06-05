@@ -1,6 +1,7 @@
 package com.example.filtro.api.controllers;
 
 
+import com.example.filtro.api.dto.request.custom_request.UpdatedStudentRequest;
 import com.example.filtro.api.dto.request.used_request.ClassRequest;
 import com.example.filtro.api.dto.request.used_request.StudentRequest;
 import com.example.filtro.api.dto.response.used_response.ClassResponse;
@@ -50,9 +51,15 @@ public class StudentController {
         return ResponseEntity.ok(this.iStudentService.getAll(page - 1, size, sortType));
     }
 
-    @PatchMapping(path = "/students/{id}/disable")
+    @PatchMapping(path = "/{id}/disable")
     public ResponseEntity<StudentResponse> inhabilitar(@PathVariable Long id){
         return ResponseEntity.ok(this.iStudentService.inhabilitar(id));
+    }
+
+
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<StudentResponse> update(@RequestBody UpdatedStudentRequest request,  @PathVariable Long id){
+        return ResponseEntity.ok(this.iStudentService.customUpdate(request, id));
     }
 
 

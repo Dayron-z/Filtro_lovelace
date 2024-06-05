@@ -1,6 +1,7 @@
 package com.example.filtro.infrastructure.services;
 
 
+import com.example.filtro.api.dto.request.custom_request.UpdatedStudentRequest;
 import com.example.filtro.api.dto.request.used_request.StudentRequest;
 import com.example.filtro.api.dto.response.custom_response.ClassResponseToStudentResponse;
 import com.example.filtro.api.dto.response.custom_response.LessonResponseToBasicClassResponse;
@@ -56,9 +57,25 @@ public class StudentService implements IStudentService {
     }
 
     @Override
-    public StudentResponse update(StudentRequest request, Long aLong) {
+    public StudentResponse update(StudentRequest request, Long id) {
+
         return null;
     }
+
+
+    public StudentResponse customUpdate(UpdatedStudentRequest request, Long id){
+        Student student = this.findById(id);
+        Student updatedStudent = this.requestToEntity(request);
+
+        updatedStudent.setId(id);
+        updatedStudent.setAClass(student.getAClass());
+        updatedStudent.setCreated_at(student.getCreated_at());
+        updatedStudent.setActive(student.getActive());
+
+
+        return this.entityToResponse(this.studentRepository.save(updatedStudent));
+    }
+
 
     public StudentResponse inhabilitar(Long id){
         Student student = this.findById(id);
@@ -67,9 +84,12 @@ public class StudentService implements IStudentService {
     }
 
 
-
-
-
+    private Student requestToEntity(UpdatedStudentRequest studentRequest){
+        return Student.builder()
+                .name(studentRequest.getName())
+                .email(studentRequest.getEmail())
+                .build();
+    }
     @Override
     public void delete(Long aLong) {
 
