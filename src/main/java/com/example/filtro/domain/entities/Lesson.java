@@ -39,5 +39,4 @@ public class Lesson {
     @EqualsAndHashCode.Exclude
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = false, mappedBy = "lesson")
     private List<Multimedia> multimediaList;
-
 }
