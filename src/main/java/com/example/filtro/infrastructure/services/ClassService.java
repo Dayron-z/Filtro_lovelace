@@ -131,7 +131,6 @@ public class ClassService implements IClassService {
                 .active(multimedia.getActive())
                 .build();
     }
-
     private ClassEntity findById(Long id){
         return this.classRepository.findById(id).orElseThrow(()-> new BadRequestException("No hay clase con ese id"));
     }

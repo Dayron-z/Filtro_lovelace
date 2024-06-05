@@ -1,5 +1,6 @@
 package com.example.filtro.domain.repositories;
 
+import com.example.filtro.api.dto.response.used_response.StudentResponse;
 import com.example.filtro.domain.entities.ClassEntity;
 import com.example.filtro.domain.entities.Student;
 import org.springframework.data.jpa.repository.JpaRepository;

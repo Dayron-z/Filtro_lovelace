@@ -2,6 +2,7 @@ package com.example.filtro.api.dto.request.used_request;
 
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,6 +17,6 @@ public class StudentRequest {
     private String name;
     @NotBlank(message = "EL email no puede estar en blanco")
     private String email;
-    @NotBlank(message = "EL class_id no puede estar en blanco")
+    @NotNull(message = "EL class_id no puede estar en blanco")
     private Long class_id;
 }
